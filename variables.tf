@@ -6,9 +6,8 @@ variable "domain_name" {
     default = "buycoffee.app."
 }
 
-variable "subdomain_name" {
-    default = ""
+variable "elb_dns_name" {
 }
 
-variable "dns_record" {
+variable "elb_zone_id" {
 }

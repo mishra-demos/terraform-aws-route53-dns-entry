@@ -8,8 +8,13 @@ data "aws_route53_zone" "default" {
 
 resource "aws_route53_record" "web_server" {
   zone_id = "${data.aws_route53_zone.default.zone_id}"
-  name    = "${var.subdomain_name}.${var.domain_name}"
+  name    = "${var.domain_name}"
   type    = "A"
-  ttl     = "5"
-  records = ["${var.dns_record}"]
+
+  alias {
+    name                   = var.elb_dns_name
+    zone_id                = var.elb_zone_id
+    evaluate_target_health = false
+  }
 }
+
