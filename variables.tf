@@ -3,7 +3,10 @@ variable "aws_region" {
 }
 
 variable "domain_name" {
-    default = "buycoffee.app."
+    default = "livedemos.xyz."
+}
+
+variable "subdomain_name" {
 }
 
 variable "elb_dns_name" {

@@ -8,7 +8,7 @@ data "aws_route53_zone" "default" {
 
 resource "aws_route53_record" "web_server" {
   zone_id = "${data.aws_route53_zone.default.zone_id}"
-  name    = "${var.domain_name}"
+  name    = "${var.subdomain_name}.${var.domain_name}"
   type    = "A"
 
   alias {
